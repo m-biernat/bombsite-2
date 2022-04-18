@@ -1,0 +1,54 @@
+{
+    "name": "PointerControls",
+    "maps": [
+        {
+            "name": "Pointer",
+            "id": "cd2a452e-8c8c-4e2b-b348-784497895522",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "c83dc26a-dd23-437d-8832-d384ff59e7be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "b0f645f5-d71a-45cd-98fe-58cd10faeaa6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "45448047-ced3-4bfd-a0ed-288924cd843e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1918baf5-6eee-4b8a-b1e2-61ddc578dc12",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
