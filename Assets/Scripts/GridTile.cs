@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Bombsite
 {
-    public class GridTile : MonoBehaviour
+    public class GridTile : MonoBehaviour, IPointerAction
     {
         public void OnHoverEnter() => Debug.Log("On Hover Enter");
 
