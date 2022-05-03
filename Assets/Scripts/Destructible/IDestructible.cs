@@ -2,7 +2,7 @@ namespace Bombsite
 {
     public interface IDestructible
     {
-        bool Destroyed { get; }
+        bool Destructed { get; }
 
         void Hit();
     }
