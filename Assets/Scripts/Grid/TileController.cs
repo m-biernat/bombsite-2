@@ -28,7 +28,7 @@ namespace Bombsite
 
             var go = InputManager.Instance.GetPointedObject(_camera, _layerMask);
 
-            if (go.CompareTag("Tile") && go != _currentGO)
+            if (go != _currentGO)
             {
                 _prevTile = _currTile;
                 _currTile = go?.GetComponent<Tile>();

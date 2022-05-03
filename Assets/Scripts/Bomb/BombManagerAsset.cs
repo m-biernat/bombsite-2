@@ -18,6 +18,9 @@ namespace Bombsite
 
         public static event Action ValueChanged;
 
+        public List<IBomb> DetonableBombs
+        { get; private set; }
+
         public void Init(List<BombContainer> availableBombs)
         {
             CurrentContainer = null;
@@ -72,6 +75,15 @@ namespace Bombsite
                 CurrentContainer = container;        
                 OnValueChanged();
             }
+        }
+
+        public void RegisterBomb(IBomb bomb)
+        {
+            if (!bomb.Detonable)
+                return;
+
+            DetonableBombs.Add(bomb);
+            bomb.SetID(DetonableBombs.Count);
         }
     }
 }

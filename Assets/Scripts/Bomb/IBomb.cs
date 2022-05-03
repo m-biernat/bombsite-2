@@ -1,11 +1,21 @@
 namespace Bombsite
 {
-    interface IBomb
+    public interface IBomb
     {
-        bool Ready { get; }
+        bool Active { get; }
+
+        void Activate();
+
+        bool Detonable { get; }
+
+        bool Interactive { get; }
+
+        int ID { get; }
+
+        void SetID(int id);
 
         void Plant();
 
-        void Explode();
+        void Trigger();
     }
 }

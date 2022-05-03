@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bombsite
@@ -12,8 +11,6 @@ namespace Bombsite
 
         [SerializeField]
         private BombManagerAsset _bombManager;
-
-        private List<IBomb> _plantedBombs;
 
         private IBomb _currBomb;
 
@@ -78,7 +75,7 @@ namespace Bombsite
 
         private void PlantBomb() 
         {
-            _plantedBombs.Add(_currBomb);
+            _bombManager.RegisterBomb(_currBomb);
             _currBomb.Plant();
             _currBomb = null;
 
