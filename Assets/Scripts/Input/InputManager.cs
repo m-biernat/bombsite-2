@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Bombsite
@@ -8,11 +9,9 @@ namespace Bombsite
 
         public PointerState PointerState { get; private set; }
 
-        public delegate void OnPressStarted();
-        public static event OnPressStarted onPressStarted;
+        public static event Action PointerPressing;
 
-        public delegate void OnPressEnded();
-        public static event OnPressEnded onPressEnded;
+        public static event Action PointerPressed;
 
         protected override void Awake() 
         {
@@ -35,20 +34,20 @@ namespace Bombsite
 
         private void SubscribeToPointerPressEvents()
         {
-            _controls.Pointer.Press.started += _ => PressStarted();
-            _controls.Pointer.Press.performed += _ => PressEnded();
+            _controls.Pointer.Press.started += _ => OnPointerPressing();
+            _controls.Pointer.Press.performed += _ => OnPointerPressed();
         }
 
-        private void PressStarted() 
+        protected virtual void OnPointerPressing() 
         {
             PointerState = PointerState.pressed;
-            onPressStarted?.Invoke();
+            PointerPressing?.Invoke();
         }
 
-        private void PressEnded() 
+        protected virtual void OnPointerPressed() 
         {
             PointerState = PointerState.released;
-            onPressEnded?.Invoke();
+            PointerPressed?.Invoke();
         }
 
         public GameObject GetPointedObject(Camera camera, int layerMask)

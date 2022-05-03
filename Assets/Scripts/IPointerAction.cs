@@ -2,12 +2,12 @@ namespace Bombsite
 {
     interface IPointerAction
     {
-        void OnHoverEnter();
+        void OnHovering();
 
-        void OnHoverExit();
+        void OnHovered();
 
-        void OnPressEnter();
+        void OnPressing();
 
-        void OnPressExit();
+        void OnPressed();
     }
 }

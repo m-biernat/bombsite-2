@@ -44,7 +44,7 @@ namespace Bombsite
 
             foreach (var tile in tiles)
             {
-                var gridTile = tile?.GetComponent<GridTile>();
+                var gridTile = tile?.GetComponent<Tile>();
                 
                 if (gridTile)
                 {
@@ -87,7 +87,7 @@ namespace Bombsite
 
             var prefab = gridManager.TilePrefab;
 
-            if (prefab is null)
+            if (!prefab)
             {
                 Debug.LogError(
                     "There is no Tile prefab assigned",
@@ -96,7 +96,7 @@ namespace Bombsite
             }
 
             var go = Instantiate(prefab);
-            var tile = go?.GetComponent<GridTile>();
+            var tile = go?.GetComponent<Tile>();
 
             if (tile)
             {
