@@ -14,6 +14,8 @@ namespace Bombsite
         public List<BombContainer> AvailableBombs 
         { get; private set; }
 
+        private int _initialBombCount;
+
         public int TotalBombCount { get; private set; }
 
         public static event Action ValueChanged;
@@ -26,13 +28,15 @@ namespace Bombsite
             CurrentContainer = null;
             AvailableBombs = new List<BombContainer>();
             TotalBombCount = 0;
-            
+
             foreach (var container in availableBombs)
             {
                 AvailableBombs.Add(new BombContainer(container));
                 TotalBombCount += container.Count;
             }
             
+            _initialBombCount = TotalBombCount;
+
             if (AvailableBombs.Count > 0)
                 CurrentContainer = AvailableBombs[0];
             else
@@ -85,5 +89,11 @@ namespace Bombsite
             DetonableBombs.Add(bomb);
             bomb.SetID(DetonableBombs.Count);
         }
+
+        public bool AllBombsUsed()
+            => TotalBombCount == 0;
+
+        public bool NoBombsUsed()
+            => TotalBombCount == _initialBombCount;
     }
 }

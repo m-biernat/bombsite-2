@@ -6,6 +6,7 @@ namespace Bombsite
     public class TileController : MonoBehaviour
     {
         private GameObject _currentGO;
+        
         private Tile _currTile, _prevTile;
 
         private Camera _camera;

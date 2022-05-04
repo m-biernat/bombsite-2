@@ -1,6 +1,6 @@
 namespace Bombsite
 {
-    interface IPointerAction
+    public interface IPointerAction
     {
         void OnHovering();
 

@@ -4,18 +4,14 @@ namespace Bombsite
 {
     public class TileManager : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject _tileContainer;
+        [field: SerializeField]
+        public GameObject TileContainer { get; private set; }
 
-        public GameObject TileContainer { get => _tileContainer; }
+        [field: SerializeField]
+        public GameObject TilePrefab { get; private set; }
 
-        [SerializeField]
-        private GameObject _tilePrefab;
+        public void ShowGrid() => TileContainer?.SetActive(true);
 
-        public GameObject TilePrefab { get => _tilePrefab; }
-
-        public void ShowGrid() => _tileContainer?.SetActive(true);
-
-        public void HideGrid() => _tileContainer?.SetActive(false);
+        public void HideGrid() => TileContainer?.SetActive(false);
     }
 }

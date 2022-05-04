@@ -7,13 +7,11 @@ namespace Bombsite
         [SerializeField]
         private DestructibleManagerAsset _destructibleManager;
 
-        private bool _destructed = false;
-        
-        public bool Destructed { get => _destructed; }
+        public bool Destructed { get; private set; } = false;
 
         public void Hit()
         {
-            if(_destructed)
+            if (Destructed)
                 return;
 
             Destruct();
@@ -21,7 +19,7 @@ namespace Bombsite
 
         private void Destruct()
         {
-            _destructed = true;
+            Destructed = true;
             _destructibleManager.OnDestructed();
         }
     }

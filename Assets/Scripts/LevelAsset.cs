@@ -7,15 +7,11 @@ namespace Bombsite
                      menuName = "Bombsite/Level")]
     public class LevelAsset : ScriptableObject
     {
-        [SerializeField]
-        private float _timeLimit;
+        [field: SerializeField]
+        public int TimeLimit { get; private set; }
 
-        public float TimeLimit { get => _timeLimit; }
-
-        [SerializeField]
-        private List<BombContainer> _availableBombs;
-
+        [field: SerializeField]
         public List<BombContainer> AvailableBombs 
-        { get => _availableBombs; }
+        { get; private set; }
     }
 }

@@ -4,19 +4,13 @@ namespace Bombsite
 {
     public class Bomb : MonoBehaviour, IBomb
     {
-        private bool _active = false;
-        
-        public bool Active { get => _active; }
+        public bool Active { get; private set; } = false;
 
-        [SerializeField]
-        private bool _detonable;
-        
-        public bool Detonable { get => _detonable; }
+        [field: SerializeField]
+        public bool Detonable { get; private set; }
 
-        [SerializeField]
-        private bool _interactive;
-
-        public bool Interactive { get => _interactive; }
+        [field: SerializeField]
+        public bool Interactive { get; private set; }
 
         public int ID { get; private set; }
 
@@ -33,7 +27,7 @@ namespace Bombsite
 
         private bool _triggered = false;
 
-        public void Activate() => _active = true;
+        public void Activate() => Active = true;
 
         public void SetID(int id) => ID = id;
 

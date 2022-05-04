@@ -6,14 +6,10 @@ namespace Bombsite
                      menuName = "Bombsite/Bomb")]
     public class BombAsset : ScriptableObject
     {
-        [SerializeField]
-        private Texture2D _icon;
+        [field: SerializeField]
+        public Texture2D Icon { get; private set; }
 
-        public Texture2D Icon { get => _icon; }
-
-        [SerializeField]
-        private GameObject _prefab;
-
-        public GameObject Prefab { get => _prefab; }       
+        [field: SerializeField]
+        public GameObject Prefab { get; private set; }       
     }
 }

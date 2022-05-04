@@ -5,26 +5,22 @@ namespace Bombsite
     [System.Serializable]
     public class BombContainer
     {
-        [SerializeField]
-        private BombAsset _bomb;
-        
-        public BombAsset Bomb { get => _bomb; }
+        [field: SerializeField]
+        public BombAsset Bomb { get; private set; }
 
-        [SerializeField]
-        private int _count;
-
-        public int Count { get => _count; }
+        [field: SerializeField]
+        public int Count { get; private set; }
 
         public BombContainer(BombContainer item)
         {
-            _bomb = item.Bomb;
-            _count = item.Count;
+            Bomb = item.Bomb;
+            Count = item.Count;
         }
 
         public void DecreaseCount()
         {
             if (Count > 0)
-                _count--;
+                Count--;
         }
 
         public bool IsEmpty()

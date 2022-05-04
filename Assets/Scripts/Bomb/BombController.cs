@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Bombsite
@@ -7,7 +8,9 @@ namespace Bombsite
     {
         public static event Action AllBombsPlanted;
 
-        public static event Action AllBombsExploded;
+        public static event Action AllBombsDetonated;
+
+        public static event Action NoBombsDetonated;
 
         [SerializeField]
         private BombManagerAsset _bombManager;
@@ -16,19 +19,23 @@ namespace Bombsite
 
         private Tile _lastTile;
 
+        private bool _detonating = false;
+
         private void OnEnable()
         {
             TileController.TileSelecting += OnTileSelecting;
             TileController.TileSelected += OnTileSelected;
+            GameController.CountdownFinished += OnCountdownFinished;
         }
 
         private void OnDisable()
         {
             TileController.TileSelecting -= OnTileSelecting;
             TileController.TileSelected -= OnTileSelected;
+            GameController.CountdownFinished -= OnCountdownFinished;
         }
 
-        protected virtual void OnTileSelecting(Tile tile)
+        private void OnTileSelecting(Tile tile)
         {   
             _lastTile = tile;
             
@@ -65,7 +72,7 @@ namespace Bombsite
             }
         }
 
-        protected virtual void OnTileSelected(Tile tile)
+        private void OnTileSelected(Tile tile)
         {
             _lastTile = tile;
 
@@ -81,14 +88,56 @@ namespace Bombsite
 
             _lastTile.Hide();
 
-            if (_bombManager.TotalBombCount == 0)
+            if (!_detonating && 
+                _bombManager.AllBombsUsed())
                 OnAllBombsPlanted();
         }
 
         protected virtual void OnAllBombsPlanted() 
             => AllBombsPlanted?.Invoke();
 
-        protected virtual void OnAllBombsExploded()
-            => AllBombsExploded?.Invoke();
+        private void OnCountdownFinished()
+        {
+            _detonating = true;
+
+            if (_currBomb != null)
+                PlantBomb();
+            
+            if (_bombManager.NoBombsUsed())
+                OnNoBombsDetonated();
+            else
+            {
+                ActivateBombs();
+                StartCoroutine(Detonate());
+            }   
+        }
+
+        protected virtual void OnNoBombsDetonated()
+            => NoBombsDetonated?.Invoke();
+
+        private void ActivateBombs()
+        {
+            var gameObjects = 
+                GameObject.FindGameObjectsWithTag("Bomb");
+
+            foreach (var go in gameObjects)
+                go?.GetComponent<IBomb>().Activate();
+        }
+
+        private IEnumerator Detonate() 
+        { 
+            foreach (var bomb in _bombManager.DetonableBombs)
+            {
+                bomb.Trigger();
+                yield return new WaitForSeconds(.5f);
+            }
+
+            yield return new WaitForSeconds(.5f);
+
+            OnAllBombsDetonated();
+        }
+
+        protected virtual void OnAllBombsDetonated()
+            => AllBombsDetonated?.Invoke();
     }
 }
