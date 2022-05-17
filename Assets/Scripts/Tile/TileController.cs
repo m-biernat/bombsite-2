@@ -24,15 +24,20 @@ namespace Bombsite
 
         private void CheckForHovering()
         {
-            if (InputManager.Instance.PointerState == PointerState.pressed)
+            if (InputManager.Instance?.PointerState == PointerState.pressed)
                 return;
 
-            var go = InputManager.Instance.GetPointedObject(_camera, _layerMask);
+            var go = InputManager.Instance?.GetPointedObject(_camera, _layerMask);
 
             if (go != _currentGO)
             {
+                var tile = go?.GetComponent<Tile>();
+
+                if (tile && tile.Hidden)
+                    return;
+
                 _prevTile = _currTile;
-                _currTile = go?.GetComponent<Tile>();
+                _currTile = tile;
                 _currentGO = go;
 
                 OnHovering();

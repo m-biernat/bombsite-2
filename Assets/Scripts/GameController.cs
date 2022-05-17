@@ -25,7 +25,13 @@ namespace Bombsite
 
         private void Awake()
         {
-            _bombManager?.Init(_level.AvailableBombs);
+            if (!_level)
+            {
+                Debug.LogError("Level Asset reference is missing!", this);
+                return;
+            }
+
+            _bombManager?.Init(_level);
             _destructibleManager?.Init();
         }
         

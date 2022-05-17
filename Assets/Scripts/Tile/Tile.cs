@@ -4,14 +4,41 @@ namespace Bombsite
 {
     public class Tile : MonoBehaviour, IPointerAction
     {
-        public void OnHovering() => Debug.Log("On Hover Enter");
+        public bool Hidden { get; private set; } = false;
 
-        public void OnHovered() => Debug.Log("On Hover Exit");
+        private bool _hovering = false;
 
-        public void OnPressing() => Debug.Log("On Press Enter");
+        public void OnHovering() 
+        {
+            ToggleHovering();
+            CursorController.Instance?.SetCursorSelect();
+        }
 
-        public void OnPressed() => Debug.Log("On Press Exit");
+        private void ToggleHovering()
+            => _hovering = !_hovering;
 
-        public void Hide() {}
+        public void OnHovered() 
+        {
+            ToggleHovering();
+            CursorController.Instance?.SetCursorDefault();
+        } 
+
+        public void OnPressing() 
+        {
+            CursorController.Instance?.SetCursorSelect();
+        }
+
+        public void OnPressed() 
+        {
+            if (_hovering)
+                CursorController.Instance?.SetCursorSelect();
+            else
+                CursorController.Instance?.SetCursorDefault();
+        }
+
+        public void Hide() 
+        {
+            Hidden = true;
+        }
     }
 }

@@ -23,13 +23,13 @@ namespace Bombsite
         public List<IBomb> DetonableBombs
         { get; private set; }
 
-        public void Init(List<BombContainer> availableBombs)
+        public void Init(LevelAsset level)
         {
             CurrentContainer = null;
             AvailableBombs = new List<BombContainer>();
             TotalBombCount = 0;
 
-            foreach (var container in availableBombs)
+            foreach (var container in level?.AvailableBombs)
             {
                 AvailableBombs.Add(new BombContainer(container));
                 TotalBombCount += container.Count;

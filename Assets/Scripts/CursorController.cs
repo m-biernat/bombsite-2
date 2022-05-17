@@ -4,24 +4,27 @@ namespace Bombsite
 {
     public class CursorController : Singleton<CursorController>
     {
-        [SerializeField] 
-        private Texture2D _defaultCursor, _selectCursor, _pressedSelectCursor;
+        [SerializeField]
+        private CursorAsset _cursor;
 
-        private new void Awake() => SetCursorDefault();
+        protected override void Awake() 
+        {
+            base.Awake();
+            SetCursorDefault();
+        }
 
-        public void SetCursorDefault() => ChangeCursor(_defaultCursor, Vector2.zero);
+        public void SetCursorDefault() 
+            => ChangeCursor(_cursor.Default, Vector2.zero);
 
         public void SetCursorSelect()
         {
             if (InputManager.Instance.PointerState == PointerState.released)
-                ChangeCursor(_selectCursor, Vector2.zero);
+                ChangeCursor(_cursor.Select, Vector2.zero);
             else
-                ChangeCursor(_pressedSelectCursor, Vector2.zero);
+                ChangeCursor(_cursor.SelectPressed, Vector2.zero);
         }
 
         private void ChangeCursor(Texture2D cursorType, Vector2 hotSpot) 
-        {
-            Cursor.SetCursor(cursorType, hotSpot, CursorMode.Auto);
-        }
+            => Cursor.SetCursor(cursorType, hotSpot, CursorMode.Auto);
     }
 }
