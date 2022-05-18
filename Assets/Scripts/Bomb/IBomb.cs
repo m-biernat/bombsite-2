@@ -4,13 +4,13 @@ namespace Bombsite
     {
         bool Active { get; }
 
-        void Activate();
+        bool Registerable { get; }
 
-        bool Detonable { get; }
-
-        bool Interactive { get; }
+        bool IsTrigger { get; }
 
         int ID { get; }
+
+        void Activate();
 
         void SetID(int id);
 

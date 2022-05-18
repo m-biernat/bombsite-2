@@ -1980,6 +1980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6574606225286561341, guid: 26179e274d233e44ea0a94d1c4756149,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6574606225286561342, guid: 26179e274d233e44ea0a94d1c4756149,
         type: 3}
       propertyPath: m_Camera

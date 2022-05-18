@@ -83,7 +83,7 @@ namespace Bombsite
 
         public void RegisterBomb(IBomb bomb)
         {
-            if (!bomb.Detonable)
+            if (!bomb.Registerable)
                 return;
 
             DetonableBombs?.Add(bomb);

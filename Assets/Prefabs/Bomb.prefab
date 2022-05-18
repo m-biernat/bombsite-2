@@ -93,6 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3885647044663944441}
   - component: {fileID: 7721202974911005068}
+  - component: {fileID: 4623853654583103467}
+  - component: {fileID: -1597551977306465559}
+  - component: {fileID: -2470519072234735079}
   - component: {fileID: 4594934431467740648}
   - component: {fileID: 7774582160502058841}
   m_Layer: 3
@@ -130,15 +133,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29cd6c7c26322a4d83fe1d24496c1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Detonable>k__BackingField: 1
-  <Interactive>k__BackingField: 0
+  <Registerable>k__BackingField: 1
+  <IsTrigger>k__BackingField: 0
+--- !u!114 &4623853654583103467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470329297009425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ea88d2d003af547b10a5e2cfd0f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1597551977306465559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470329297009425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74af76ea032139448a9c2ab014455b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _power: 14
   _radius: 3
   _upForce: 1
-  _delay: 0.4
+  <Delay>k__BackingField: 0.4
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &-2470519072234735079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470329297009425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1173e0105f8ba45a912b72778b80b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionFx: {fileID: 7539337527970461609, guid: 3426a031300a1c041b4e0a6eb4159db2,
+    type: 3}
+  _delayOffset: 0.2
 --- !u!65 &4594934431467740648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,7 +205,7 @@ Rigidbody:
   m_Mass: 0.8
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
