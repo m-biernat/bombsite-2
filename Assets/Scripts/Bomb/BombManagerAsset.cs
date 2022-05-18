@@ -27,6 +27,7 @@ namespace Bombsite
         {
             CurrentContainer = null;
             AvailableBombs = new List<BombContainer>();
+            DetonableBombs = new List<IBomb>();
             TotalBombCount = 0;
 
             foreach (var container in level?.AvailableBombs)
@@ -47,7 +48,6 @@ namespace Bombsite
 
         protected virtual void OnValueChanged() 
             => ValueChanged?.Invoke();
-
         
         public GameObject GetBombPrefab()
             => CurrentContainer.Bomb.Prefab;
@@ -57,7 +57,7 @@ namespace Bombsite
             if (TotalBombCount <= 0)
                 return;
 
-            CurrentContainer.DecreaseCount();
+            CurrentContainer?.DecreaseCount();
 
             if (CurrentContainer.IsEmpty())
                 FindNewContainer();
@@ -69,7 +69,7 @@ namespace Bombsite
         private void FindNewContainer()
         {
             CurrentContainer = 
-                AvailableBombs.Find(item => item.Count > 0);
+                AvailableBombs?.Find(item => item.Count > 0);
         }
 
         public void SelectContainer(BombContainer container)
@@ -86,8 +86,8 @@ namespace Bombsite
             if (!bomb.Detonable)
                 return;
 
-            DetonableBombs.Add(bomb);
-            bomb.SetID(DetonableBombs.Count);
+            DetonableBombs?.Add(bomb);
+            bomb?.SetID(DetonableBombs.Count);
         }
 
         public bool AllBombsUsed()

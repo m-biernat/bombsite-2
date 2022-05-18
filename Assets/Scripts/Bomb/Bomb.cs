@@ -71,6 +71,8 @@ namespace Bombsite
                 if (go.CompareTag("Destructible"))
                     go?.GetComponent<IDestructible>()?.Hit();
             }
+
+            Destroy(gameObject);
         }
     }
 }

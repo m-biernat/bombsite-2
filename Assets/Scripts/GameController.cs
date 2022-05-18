@@ -48,7 +48,7 @@ namespace Bombsite
             for (int i = 0; i < _level?.TimeLimit; i++)
             {
                 yield return new WaitForSecondsRealtime(1f);
-                // Update clock
+                Debug.Log(i);
             }
             _countdown = null;
             

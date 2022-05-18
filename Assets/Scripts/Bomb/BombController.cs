@@ -17,28 +17,28 @@ namespace Bombsite
 
         private IBomb _currBomb;
 
-        private Tile _lastTile;
+        private Tile _currTile;
 
         private bool _detonating = false;
 
         private void OnEnable()
         {
-            TileController.TileSelecting += OnTileSelecting;
-            TileController.TileSelected += OnTileSelected;
+            Tile.Pressing += OnTilePressing;
+            Tile.Pressed += OnTilePressed;
             GameController.CountdownFinished += OnCountdownFinished;
         }
 
         private void OnDisable()
         {
-            TileController.TileSelecting -= OnTileSelecting;
-            TileController.TileSelected -= OnTileSelected;
+            Tile.Pressing -= OnTilePressing;
+            Tile.Pressed -= OnTilePressed;
             GameController.CountdownFinished -= OnCountdownFinished;
         }
 
-        private void OnTileSelecting(Tile tile)
+        private void OnTilePressing(Tile tile)
         {   
-            _lastTile = tile;
-            
+            _currTile = tile;
+
             if (_bombManager.TotalBombCount > 0)
                 PrepareBomb();
         }
@@ -55,7 +55,7 @@ namespace Bombsite
 
         private void SpawnBomb(GameObject prefab)
         {
-            var position = _lastTile.transform.position;
+            var position = _currTile.transform.position;
             position.y += 1;
             var rotation = prefab.transform.rotation;
 
@@ -72,21 +72,20 @@ namespace Bombsite
             }
         }
 
-        private void OnTileSelected(Tile tile)
+        private void OnTilePressed()
         {
-            _lastTile = tile;
-
             if (_currBomb != null)
                 PlantBomb();
         }
 
         private void PlantBomb() 
         {
-            _bombManager.RegisterBomb(_currBomb);
-            _currBomb.Plant();
-            _currBomb = null;
+            _currTile?.Hide();
+            _currTile = null;
 
-            _lastTile.Hide();
+            _bombManager?.RegisterBomb(_currBomb);
+            _currBomb?.Plant();
+            _currBomb = null;
 
             if (!_detonating && 
                 _bombManager.AllBombsUsed())
@@ -128,11 +127,11 @@ namespace Bombsite
         { 
             foreach (var bomb in _bombManager.DetonableBombs)
             {
+                yield return new WaitForSecondsRealtime(.5f);
                 bomb.Trigger();
-                yield return new WaitForSeconds(.5f);
             }
 
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSecondsRealtime(.5f);
 
             OnAllBombsDetonated();
         }

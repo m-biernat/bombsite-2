@@ -1,44 +1,31 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Bombsite
 {
-    public class Tile : MonoBehaviour, IPointerAction
+    public class Tile : MonoBehaviour
     {
-        public bool Hidden { get; private set; } = false;
+        [SerializeField]
+        private Image _image;
 
-        private bool _hovering = false;
+        public static event Action<Tile> Pressing;
 
-        public void OnHovering() 
-        {
-            ToggleHovering();
-            CursorController.Instance?.SetCursorSelect();
-        }
-
-        private void ToggleHovering()
-            => _hovering = !_hovering;
-
-        public void OnHovered() 
-        {
-            ToggleHovering();
-            CursorController.Instance?.SetCursorDefault();
-        } 
+        public static event Action Pressed;
 
         public void OnPressing() 
-        {
-            CursorController.Instance?.SetCursorSelect();
-        }
+            => Pressing?.Invoke(this);
 
-        public void OnPressed() 
-        {
-            if (_hovering)
-                CursorController.Instance?.SetCursorSelect();
-            else
-                CursorController.Instance?.SetCursorDefault();
-        }
+        public void OnPressed()
+            => Pressed?.Invoke();
 
-        public void Hide() 
+        public void Hide()
         {
-            Hidden = true;
+            _image.raycastTarget = false;
+            _image.DOFade(0f, .5f)
+                  .OnComplete(
+                      () => gameObject.SetActive(false));
         }
     }
 }

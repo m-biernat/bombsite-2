@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Test Bomb
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 0}
-  <Prefab>k__BackingField: {fileID: 0}
+  <Prefab>k__BackingField: {fileID: 6470329297009425823, guid: 39001d1366f78d24f8d66b3490cb7b58,
+    type: 3}
