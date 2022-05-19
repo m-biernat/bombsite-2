@@ -22,18 +22,27 @@ namespace Bombsite
 
         private IExplode _explode;
 
+        private BombLabel _label;
+
         private void Awake()
         {
             _plant = GetComponent<IPlant>();
             _detonate = GetComponent<IDetonate>();
             _explode = GetComponent<IExplode>();
+            _label = GetComponent<BombLabel>();
         }
 
         public void Activate() => Active = true;
 
         public void SetID(int id) => ID = id;
 
-        public void Plant() => _plant?.Invoke();
+        public void Plant() 
+        {
+            if (Registerable)
+                _label?.Init(ID);
+
+            _plant?.Invoke();
+        }
 
         public void Trigger()
         {
