@@ -48,3 +48,4 @@ MonoBehaviour:
   _bombManager: {fileID: 11400000, guid: e651a7bf2701cd94c9a8223d4f53d666, type: 2}
   _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
     type: 2}
+  _time: {fileID: 11400000, guid: d3193341a0696c646b4317037e69712f, type: 2}

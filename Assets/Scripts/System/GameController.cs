@@ -9,7 +9,7 @@ namespace Bombsite
         [SerializeField]
         private LevelAsset _level;
 
-        [SerializeField]
+        [Space, SerializeField]
         private BombManagerAsset _bombManager;
 
         [SerializeField]
@@ -23,6 +23,11 @@ namespace Bombsite
 
         private IEnumerator _countdown;
 
+        [Space, SerializeField]
+        private IntVariable _time;
+
+        private WaitForSecondsRealtime _extraDelay, _timeDelay;
+
         private void Awake()
         {
             if (!_level)
@@ -33,6 +38,10 @@ namespace Bombsite
 
             _bombManager?.Init(_level);
             _destructibleManager?.Init();
+            
+            _time.Initialize(_level.TimeLimit);
+            _extraDelay = new WaitForSecondsRealtime(.5f);
+            _timeDelay = new WaitForSecondsRealtime(1);
         }
         
         private void Start()
@@ -43,14 +52,18 @@ namespace Bombsite
 
         public IEnumerator Countdown()
         {
-            yield return new WaitForSecondsRealtime(.5f);
+            yield return _extraDelay;
 
-            for (int i = 0; i < _level?.TimeLimit; i++)
+            var limit = _level.TimeLimit;
+
+            for (int i = 1; i <= limit; i++)
             {
-                yield return new WaitForSecondsRealtime(1f);
-                Debug.Log(i);
+                yield return _timeDelay;
+                _time.Value = limit - i;
             }
             _countdown = null;
+
+            yield return _extraDelay;
             
             OnCountdownFinished();
         }
@@ -66,23 +79,15 @@ namespace Bombsite
 
         private void OnEnable()
         {
-            // GameManager.GamePaused += OnGamePaused
-            // GameManager.GameResumed += OnGameResumed
             BombController.AllBombsPlanted += OnAllBombsPlanted;
             BombController.AllBombsDetonated += OnAllBombsDetonated;
         }
 
         private void OnDisable()
         {
-            // GameManager.GamePaused -= OnGamePaused
-            // GameManager.GameResumed -= OnGameResumed
             BombController.AllBombsPlanted -= OnAllBombsPlanted;
             BombController.AllBombsDetonated -= OnAllBombsDetonated;
         }
-
-        private void OnGamePaused() {}
-
-        private void OnGameResumed() {}
 
         private void OnAllBombsPlanted()
         {

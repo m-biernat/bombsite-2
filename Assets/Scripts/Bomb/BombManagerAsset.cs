@@ -42,8 +42,6 @@ namespace Bombsite
                 CurrentContainer = AvailableBombs[0];
             else
                 Debug.LogError("List of available bombs is empty", this);
-
-            OnValueChanged();
         }
 
         protected virtual void OnValueChanged() 

@@ -7,7 +7,7 @@ namespace Bombsite
     public class BombAsset : ScriptableObject
     {
         [field: SerializeField]
-        public Texture2D Icon { get; private set; }
+        public Sprite Icon { get; private set; }
 
         [field: SerializeField]
         public GameObject Prefab { get; private set; }       

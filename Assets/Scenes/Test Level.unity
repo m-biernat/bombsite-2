@@ -1417,7 +1417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.915547, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2414,6 +2414,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Select Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 5701928795257223625, guid: 517384588cbcf8b45b566a61b1680aff,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701928795257223625, guid: 517384588cbcf8b45b566a61b1680aff,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701928795257223625, guid: 517384588cbcf8b45b566a61b1680aff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701928795257223625, guid: 517384588cbcf8b45b566a61b1680aff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517384588cbcf8b45b566a61b1680aff, type: 3}
 --- !u!224 &5701928794280132050 stripped
@@ -2928,6 +2948,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646668502652274899, guid: 084415283b9bb2a489a7eb4f2cef96eb,
+        type: 3}
+      propertyPath: _zeroColor.b
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646668502652274899, guid: 084415283b9bb2a489a7eb4f2cef96eb,
+        type: 3}
+      propertyPath: _zeroColor.g
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646668502652274899, guid: 084415283b9bb2a489a7eb4f2cef96eb,
+        type: 3}
+      propertyPath: _zeroColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 084415283b9bb2a489a7eb4f2cef96eb, type: 3}
