@@ -15,8 +15,13 @@ namespace Bombsite
         [SerializeField]
         private LayerMask _layerMask;
 
+        private IImpulse _impulse;
+
         public void Invoke()
             => Invoke("Detonate", Delay);
+
+        private void Awake()
+            => _impulse = GetComponent<IImpulse>();
 
         private void Detonate()
         {
@@ -44,6 +49,8 @@ namespace Bombsite
                 if (go.CompareTag("Destructible"))
                     go?.GetComponent<IDestructible>()?.Hit();
             }
+
+            _impulse?.Invoke();
 
             Destroy(gameObject);
         }

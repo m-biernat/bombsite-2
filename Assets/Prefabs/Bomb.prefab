@@ -97,8 +97,10 @@ GameObject:
   - component: {fileID: 7520332959861728800}
   - component: {fileID: -1597551977306465559}
   - component: {fileID: -2470519072234735079}
+  - component: {fileID: -3972239106273973245}
   - component: {fileID: 4594934431467740648}
   - component: {fileID: 7774582160502058841}
+  - component: {fileID: -2740500922909226170}
   m_Layer: 3
   m_Name: Bomb
   m_TagString: Bomb
@@ -196,6 +198,20 @@ MonoBehaviour:
   _explosionFx: {fileID: 7539337527970461609, guid: 3426a031300a1c041b4e0a6eb4159db2,
     type: 3}
   _delayOffset: 0.2
+--- !u!114 &-3972239106273973245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470329297009425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f9b8d710350534196e6badc48fd134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensity: 7
+  _distance: 10
 --- !u!65 &4594934431467740648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -225,6 +241,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2740500922909226170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470329297009425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 3
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.3
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &7488830307488149200
 PrefabInstance:
   m_ObjectHideFlags: 0

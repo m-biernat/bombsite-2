@@ -5,7 +5,7 @@ namespace Bombsite
 {
     [CreateAssetMenu(fileName = "Level Manager", 
                      menuName = "Bombsite/Level Manager")]
-    public class LevelManagerAsset : ScriptableObject, ISerializationCallbackReceiver
+    public class LevelManagerAsset : ScriptableObject
     {
         [SerializeField]
         private List<LevelGroupAsset> _levelGroups;
@@ -28,7 +28,7 @@ namespace Bombsite
             public LevelAsset Asset { get; }
         } 
 
-        public void OnAfterDeserialize()
+        public void Initialize()
         {
             Levels = new Dictionary<string, LevelInfo>();
 
@@ -40,7 +40,5 @@ namespace Bombsite
                     Levels.Add(level.ScenePath, levelInfo);
                 }
         }
-
-        public void OnBeforeSerialize() { }
     }
 }
