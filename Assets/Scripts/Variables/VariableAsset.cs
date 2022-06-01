@@ -31,7 +31,7 @@ namespace Bombsite
         protected virtual void OnValueChanged() 
             => ValueChanged?.Invoke();
 
-        public void Initialize(T value) 
+        public void Init(T value) 
             => _value = value;
     }
 }

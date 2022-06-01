@@ -43,7 +43,7 @@ namespace Bombsite
             _bombManager?.Init(_level);
             _destructibleManager?.Init();
             
-            _time.Initialize(_level.TimeLimit);
+            _time.Init(_level.TimeLimit);
             _extraDelay = new WaitForSecondsRealtime(.5f);
             _timeDelay = new WaitForSecondsRealtime(1);
         }
@@ -107,8 +107,13 @@ namespace Bombsite
             => OnLevelFailed();
 
         private void OnAllBombsDetonated()
+            => Invoke("DetermineResults", 1.0f);
+
+        private void DetermineResults() 
         {
-            if (_bombManager.AllBombsUsed())
+            _destructibleManager.MarkAllUndamaged();
+
+            if (_destructibleManager.AllDestructed())
                 OnLevelCompleted();
             else
                 OnLevelFailed();

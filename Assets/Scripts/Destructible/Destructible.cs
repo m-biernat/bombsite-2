@@ -22,5 +22,14 @@ namespace Bombsite
             Destructed = true;
             _destructibleManager.OnDestructed();
         }
+
+        public void MarkUndamaged()
+        {
+            var renderer = GetComponent<Renderer>();
+
+            if (renderer)
+                foreach (var material in renderer.materials)
+                    material?.SetInt("_Pulse", 1);
+        }
     }
 }

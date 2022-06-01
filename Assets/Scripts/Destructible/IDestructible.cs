@@ -5,5 +5,7 @@ namespace Bombsite
         bool Destructed { get; }
 
         void Hit();
+
+        void MarkUndamaged();
     }
 }

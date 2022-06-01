@@ -8,8 +8,7 @@ namespace Bombsite
                      menuName = "Bombsite/Destructible Manager")]
     public class DestructibleManagerAsset : ScriptableObject
     {
-        //private List<IDestructible> _destructibles;   This will be needed
-        //                                              for marking undamaged
+        private List<IDestructible> _destructibles;
 
         public int TotalDestructibles { get; private set; }
 
@@ -19,10 +18,20 @@ namespace Bombsite
 
         public void Init() 
         {
-            var destructibles = 
+            _destructibles = new List<IDestructible>();
+            
+            var gameObjects = 
                 GameObject.FindGameObjectsWithTag("Destructible");
+
+            foreach (var go in gameObjects)
+            {
+                var destructible = go.GetComponent<IDestructible>();
                 
-            TotalDestructibles = destructibles.Length;
+                if (destructible != null)
+                    _destructibles.Add(destructible);
+            }
+                
+            TotalDestructibles = _destructibles.Count;
             DestructedCount = 0;
         }
 
@@ -37,5 +46,12 @@ namespace Bombsite
 
         public bool AllDestructed()
             => DestructedCount == TotalDestructibles;
+
+        public void MarkAllUndamaged()
+        {
+            foreach (var destructible in _destructibles)
+                if(!destructible.Destructed)
+                    destructible.MarkUndamaged();
+        }
     }
 }

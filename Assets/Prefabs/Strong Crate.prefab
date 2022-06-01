@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1228935177332499963}
   - component: {fileID: 2371449384412693684}
   - component: {fileID: -2702376681387742802}
+  - component: {fileID: -6025505938822382808}
   m_Layer: 3
   m_Name: Strong Crate
   m_TagString: Destructible
@@ -116,3 +117,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6025505938822382808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724783189113766958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9acd086e8eb6d4b9c5f802a51e600c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
+    type: 2}
