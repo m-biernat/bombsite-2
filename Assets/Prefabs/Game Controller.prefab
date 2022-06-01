@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3831166ebec71d5468ee2fe73081932c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: {fileID: 0}
+  _currentLevel: {fileID: 11400000, guid: f9f56d4be9ed8484397ab9bbca1b5de9, type: 2}
   _bombManager: {fileID: 11400000, guid: e651a7bf2701cd94c9a8223d4f53d666, type: 2}
   _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
     type: 2}

@@ -7,6 +7,8 @@ namespace Bombsite
     public class GameController : MonoBehaviour
     {
         [SerializeField]
+        private CurrentLevelAsset _currentLevel;
+
         private LevelAsset _level;
 
         [Space, SerializeField]
@@ -30,6 +32,8 @@ namespace Bombsite
 
         private void Awake()
         {
+            _level = _currentLevel?.UpdateInfo();
+
             if (!_level)
             {
                 Debug.LogError("Level Asset reference is missing!", this);

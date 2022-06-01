@@ -6,7 +6,12 @@ namespace Bombsite
     [CreateAssetMenu(fileName = "New Level", 
                      menuName = "Bombsite/Level")]
     public class LevelAsset : ScriptableObject
-    {
+    {   
+        [SerializeField, HideInInspector]
+        private string _scenePath;
+
+        public string ScenePath { get => _scenePath; }
+
         [field: SerializeField]
         public int TimeLimit { get; private set; }
 
