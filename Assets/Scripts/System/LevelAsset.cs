@@ -18,5 +18,8 @@ namespace Bombsite
         [field: SerializeField]
         public List<BombContainer> AvailableBombs 
         { get; private set; }
+
+        public void Initialize(string scenePath)
+            => _scenePath = scenePath;
     }
 }

@@ -4,10 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _level: {instanceID: 0}
+  - _currentLevel: {fileID: 11400000, guid: f9f56d4be9ed8484397ab9bbca1b5de9, type: 2}
   - _bombManager: {fileID: 11400000, guid: e651a7bf2701cd94c9a8223d4f53d666, type: 2}
   - _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
       type: 2}
+  - _time: {fileID: 11400000, guid: d3193341a0696c646b4317037e69712f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
