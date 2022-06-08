@@ -7,8 +7,8 @@ namespace Bombsite
                      menuName = "Bombsite/Level Manager")]
     public class LevelManagerAsset : ScriptableObject
     {
-        [SerializeField]
-        private List<LevelGroupAsset> _levelGroups;
+        [field: SerializeField]
+        public List<LevelGroupAsset> LevelGroups { get; private set; }
 
         public Dictionary<string, LevelInfo> Levels { get; private set; } 
 
@@ -32,13 +32,21 @@ namespace Bombsite
         {
             Levels = new Dictionary<string, LevelInfo>();
 
-            for (int i = 0; i < _levelGroups.Count; i++)
-                for (int j = 0; j < _levelGroups[i].Levels.Count; j++) 
+            for (int i = 0; i < LevelGroups.Count; i++)
+                for (int j = 0; j < LevelGroups[i].Levels.Count; j++) 
                 {
-                    var level = _levelGroups[i].Levels[j];
+                    var level = LevelGroups[i].Levels[j];
                     var levelInfo = new LevelInfo(i, j, level);
                     Levels.Add(level.ScenePath, levelInfo);
                 }
+        }
+
+        public void SwapGroups(LevelAsset level, int from, int to)
+        {
+            if (from > -1)
+                LevelGroups[from].Levels.Remove(level);
+
+            LevelGroups[to].Levels.Add(level);
         }
     }
 }

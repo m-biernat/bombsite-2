@@ -14,7 +14,7 @@ namespace Bombsite.UI
         private void Start()
         {
             var info = _currentLevel.Info;
-            string name = $"L. {info.Group + 1}.{(info.Index):01}";
+            string name = $"L. {info.Group}.{(info.Index + 1):00}";
             _text.text = name;
         }
     }

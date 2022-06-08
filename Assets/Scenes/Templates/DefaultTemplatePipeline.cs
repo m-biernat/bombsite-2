@@ -50,7 +50,8 @@ namespace Bombsite
             AssetDatabase.CreateAsset(asset, $"Assets/Content/Levels/{scene.name}.asset");
             
             asset.Initialize(scene.path);
-            var group = AssetDatabase.LoadAssetAtPath<LevelGroupAsset>("Assets/Content/Levels/Development.asset");
+            var path = AssetDatabase.GUIDToAssetPath("1208084ed2b8b214fa72850816a03058");
+            var group = AssetDatabase.LoadAssetAtPath<LevelGroupAsset>(path);
             group.Levels.Add(asset);
             
             AssetDatabase.SaveAssets();

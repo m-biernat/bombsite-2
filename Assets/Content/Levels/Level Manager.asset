@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5373a45e8eb154f9051f9361583888, type: 3}
   m_Name: Level Manager
   m_EditorClassIdentifier: 
-  _levelGroups:
+  <LevelGroups>k__BackingField:
   - {fileID: 11400000, guid: 1208084ed2b8b214fa72850816a03058, type: 2}
   - {fileID: 11400000, guid: 816f126d155cb094f8760ad207a4c05d, type: 2}

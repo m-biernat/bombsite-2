@@ -15,8 +15,7 @@ namespace Bombsite
 
         public LevelAsset UpdateInfo() 
         {
-            var index = SceneManager.GetActiveScene().buildIndex;
-            var path = SceneUtility.GetScenePathByBuildIndex(index);
+            var path = SceneManager.GetActiveScene().path;
 
             Info = _levelManager.Levels[path];
             
