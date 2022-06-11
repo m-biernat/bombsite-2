@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _currentLevel: {fileID: 11400000, guid: f9f56d4be9ed8484397ab9bbca1b5de9, type: 2}
+  - _levelManager: {fileID: 11400000, guid: 96b543fbd4c01314eaf9c8730cac199a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

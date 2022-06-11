@@ -3,7 +3,12 @@ guid: ba0bc700cd1171342866fdf44cfe2425
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _gameManager: {fileID: 11400000, guid: 6bb472645afb2b34aa9f20ab87f4b916, type: 2}
+  - _onCountdownFinished: {instanceID: 0}
+  - <Controls>k__BackingField: {instanceID: 0}
+  - <TextOnLevelComplete>k__BackingField: {instanceID: 0}
+  - <TextOnLevelFinished>k__BackingField: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

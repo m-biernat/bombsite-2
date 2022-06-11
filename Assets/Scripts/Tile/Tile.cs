@@ -23,7 +23,7 @@ namespace Bombsite
             => Pressed?.Invoke();
 
         public void Hide() 
-            => _fade = _image?.Fade(0.0f, .5f, false);
+            => _fade = _image?.FadeOut(.5f);
 
         private void OnDestroy() => _fade?.Kill();
     }

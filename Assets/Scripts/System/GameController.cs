@@ -57,6 +57,7 @@ namespace Bombsite
         {
             SceneLoader.SceneLoaded += OnSceneLoaded;
             BombController.AllBombsPlanted += OnAllBombsPlanted;
+            BombController.NoBombsDetonated += OnNoBombsDetonated;
             BombController.AllBombsDetonated += OnAllBombsDetonated;
         }
 
@@ -64,6 +65,7 @@ namespace Bombsite
         {
             SceneLoader.SceneLoaded -= OnSceneLoaded;
             BombController.AllBombsPlanted -= OnAllBombsPlanted;
+            BombController.NoBombsDetonated -= OnNoBombsDetonated;
             BombController.AllBombsDetonated -= OnAllBombsDetonated;
         }
 
@@ -101,7 +103,10 @@ namespace Bombsite
         }
 
         private void OnNoBombsDetonated()
-            => OnLevelFailed();
+        {
+            _destructibleManager.MarkAllUndamaged();
+            OnLevelFailed();
+        }
 
         protected virtual void OnLevelFailed()
             => LevelFailed?.Invoke();

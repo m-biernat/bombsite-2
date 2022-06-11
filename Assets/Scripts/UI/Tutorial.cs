@@ -1,14 +1,14 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace Bombsite
+namespace Bombsite.UI
 {
     public class Tutorial : MonoBehaviour
     {
         [SerializeField]
         private float _target;
 
-        private int _tweenId;
+        private Tween _tween;
 
         [SerializeField]
         private Ease _easeType;
@@ -25,7 +25,7 @@ namespace Bombsite
         private void OnEnable()
         {   
             GameController.CountdownFinished += OnCountdownFinished;
-            DOTween.Play(_tweenId);
+            DOTween.Play(_tween);
         }
 
         private void OnCountdownFinished()
@@ -37,15 +37,17 @@ namespace Bombsite
 
         private void Animate()
         {
-            _tweenId = transform.DOLocalMoveZ(_target, .5f)
-                                .SetEase(_easeType)
-                                .SetLoops(-1, LoopType.Yoyo).intId;
+            _tween = transform.DOLocalMoveZ(_target, .5f)
+                              .SetEase(_easeType)
+                              .SetLoops(-1, LoopType.Yoyo);
         }
 
         private void OnDisable()
         {
             GameController.CountdownFinished -= OnCountdownFinished;
-            DOTween.Pause(_tweenId);
+            DOTween.Pause(_tween);
         }
+
+        private void OnDestroy() => _tween.Kill();
     }
 }

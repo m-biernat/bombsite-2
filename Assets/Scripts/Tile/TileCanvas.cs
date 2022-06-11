@@ -25,7 +25,7 @@ namespace Bombsite
         public void Hide() 
         {
             CursorManager.Instance.SetCursorDefault();
-            _fade = _canvasGroup?.Fade(0.0f, .5f, false);
+            _fade = _canvasGroup?.FadeOut(.5f);
         }
 
         private void OnDestroy()
