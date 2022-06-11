@@ -47,11 +47,13 @@ namespace Bombsite
         {
             var asset = ScriptableObject.CreateInstance<LevelAsset>();
 
-            AssetDatabase.CreateAsset(asset, $"Assets/Content/Levels/{scene.name}.asset");
+            var path = $"Assets/Content/Levels/{scene.name}.asset";
+            var uniquePath = AssetDatabase.GenerateUniqueAssetPath(path);
+            AssetDatabase.CreateAsset(asset, uniquePath);
             
             asset.Initialize(scene.path);
-            var path = AssetDatabase.GUIDToAssetPath("1208084ed2b8b214fa72850816a03058");
-            var group = AssetDatabase.LoadAssetAtPath<LevelGroupAsset>(path);
+            var groupPath = AssetDatabase.GUIDToAssetPath("1208084ed2b8b214fa72850816a03058");
+            var group = AssetDatabase.LoadAssetAtPath<LevelGroupAsset>(groupPath);
             group.Levels.Add(asset);
             
             AssetDatabase.SaveAssets();

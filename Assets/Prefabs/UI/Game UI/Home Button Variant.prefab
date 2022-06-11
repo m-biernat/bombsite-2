@@ -10,7 +10,43 @@ PrefabInstance:
     - target: {fileID: 4245292814447857552, guid: bbc322f0044354544913be4bc75c2261,
         type: 3}
       propertyPath: m_Name
-      value: Home Button
+      value: Home Button Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bb472645afb2b34aa9f20ab87f4b916,
+        type: 2}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bombsite.GameManagerAsset, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245292814447857566, guid: bbc322f0044354544913be4bc75c2261,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4245292814447857567, guid: bbc322f0044354544913be4bc75c2261,
         type: 3}

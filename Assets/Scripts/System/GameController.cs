@@ -28,11 +28,14 @@ namespace Bombsite
         [Space, SerializeField]
         private IntVariable _time;
 
-        private WaitForSecondsRealtime _extraDelay, _timeDelay;
+        private WaitForSecondsRealtime _timeDelay, _extraDelay;
+
+        [SerializeField]
+        private float _timeDelayValue = 1.0f, _extraDelayValue = .5f;
 
         private void Awake()
         {
-            _level = _currentLevel?.UpdateInfo();
+            _level = _currentLevel?.Init();
 
             if (!_level)
             {
@@ -44,15 +47,27 @@ namespace Bombsite
             _destructibleManager?.Init();
             
             _time.Init(_level.TimeLimit);
-            _extraDelay = new WaitForSecondsRealtime(.5f);
-            _timeDelay = new WaitForSecondsRealtime(1);
+            _timeDelay = new WaitForSecondsRealtime(_timeDelayValue);
+            _extraDelay = new WaitForSecondsRealtime(_extraDelayValue);
+
+            _countdown = Countdown();
         }
         
-        private void Start()
+        private void OnEnable()
         {
-            _countdown = Countdown();
-            StartCoroutine(_countdown);
+            SceneLoader.SceneLoaded += OnSceneLoaded;
+            BombController.AllBombsPlanted += OnAllBombsPlanted;
+            BombController.AllBombsDetonated += OnAllBombsDetonated;
         }
+
+        private void OnDisable()
+        {
+            SceneLoader.SceneLoaded -= OnSceneLoaded;
+            BombController.AllBombsPlanted -= OnAllBombsPlanted;
+            BombController.AllBombsDetonated -= OnAllBombsDetonated;
+        }
+
+        private void OnSceneLoaded() => StartCoroutine(_countdown);
 
         public IEnumerator Countdown()
         {
@@ -75,24 +90,6 @@ namespace Bombsite
         protected virtual void OnCountdownFinished()
             => CountdownFinished?.Invoke();
 
-        protected virtual void OnLevelCompleted()
-            => LevelCompleted?.Invoke();
-
-        protected virtual void OnLevelFailed()
-            => LevelFailed?.Invoke();
-
-        private void OnEnable()
-        {
-            BombController.AllBombsPlanted += OnAllBombsPlanted;
-            BombController.AllBombsDetonated += OnAllBombsDetonated;
-        }
-
-        private void OnDisable()
-        {
-            BombController.AllBombsPlanted -= OnAllBombsPlanted;
-            BombController.AllBombsDetonated -= OnAllBombsDetonated;
-        }
-
         private void OnAllBombsPlanted()
         {
             if (_countdown is null)
@@ -100,14 +97,17 @@ namespace Bombsite
             
             StopCoroutine(_countdown);
 
-            OnCountdownFinished();
+            Invoke("OnCountdownFinished", _extraDelayValue);
         }
 
         private void OnNoBombsDetonated()
             => OnLevelFailed();
 
+        protected virtual void OnLevelFailed()
+            => LevelFailed?.Invoke();
+
         private void OnAllBombsDetonated()
-            => Invoke("DetermineResults", 1.0f);
+            => Invoke("DetermineResults", _level.WaitTime);
 
         private void DetermineResults() 
         {
@@ -118,5 +118,8 @@ namespace Bombsite
             else
                 OnLevelFailed();
         }
+
+        protected virtual void OnLevelCompleted()
+            => LevelCompleted?.Invoke();
     }
 }

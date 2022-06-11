@@ -22,6 +22,8 @@ namespace Bombsite.UI
 
         private float _fillStep;
 
+        private Tween _sequence, _tween;
+
         private void Start() => Init();
 
         private void Init() 
@@ -47,13 +49,19 @@ namespace Bombsite.UI
             {
                 _text.color = _zeroColor;
                 
-                DOTween.Sequence()
-                    .Append(_text.transform.DOScale(1.5f, .1f))
-                    .Append(_text.transform.DOScale(1.0f, .2f).SetEase(Ease.OutBounce));
+                _sequence = DOTween.Sequence()
+                        .Append(_text.transform.DOScale(1.5f, .1f))
+                        .Append(_text.transform.DOScale(1.0f, .2f).SetEase(Ease.OutBounce));
             }
                 
             _fillSize.x -= _fillStep;
-            _fill.DOSizeDelta(_fillSize, .5f).SetEase(Ease.OutBounce);
+            _tween = _fill.DOSizeDelta(_fillSize, .5f).SetEase(Ease.OutBounce);
+        }
+
+        private void OnDestroy()
+        {
+            _sequence?.Kill();
+            _tween?.Kill();
         }
     }
 }

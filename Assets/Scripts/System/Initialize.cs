@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Bombsite
 {
-    public class OnInitialize : MonoBehaviour
+    public class Initialize : MonoBehaviour
     {
         [SerializeField]
         private UnityEvent _invokeOnInitialize;

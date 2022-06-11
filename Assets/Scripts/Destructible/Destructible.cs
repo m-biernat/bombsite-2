@@ -9,6 +9,13 @@ namespace Bombsite
 
         public bool Destructed { get; private set; } = false;
 
+        private void OnCollisionEnter(Collision other)
+        {
+            var go = other.gameObject;
+            if (go.CompareTag("Destructible"))
+                go.GetComponent<IDestructible>()?.Hit();
+        }
+
         public void Hit()
         {
             if (Destructed)

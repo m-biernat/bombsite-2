@@ -10,6 +10,8 @@ namespace Bombsite
         [SerializeField]
         private Image _image;
 
+        private Tween _fade;
+
         public static event Action<Tile> Pressing;
 
         public static event Action Pressed;
@@ -20,12 +22,9 @@ namespace Bombsite
         public void OnPressed()
             => Pressed?.Invoke();
 
-        public void Hide()
-        {
-            _image.raycastTarget = false;
-            _image.DOFade(0f, .5f)
-                  .OnComplete(
-                      () => gameObject.SetActive(false));
-        }
+        public void Hide() 
+            => _fade = _image?.Fade(0.0f, .5f, false);
+
+        private void OnDestroy() => _fade?.Kill();
     }
 }

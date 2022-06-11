@@ -14,6 +14,8 @@ namespace Bombsite
         [Space, SerializeField]
         private CanvasGroup _canvasGroup;
 
+        private Tween _fade;
+
         private void OnEnable() 
             => GameController.CountdownFinished += Hide;
 
@@ -22,12 +24,11 @@ namespace Bombsite
 
         public void Hide() 
         {
-            _canvasGroup.blocksRaycasts = false;
-            _canvasGroup.DOFade(0f, .5f)
-                        .OnComplete(
-                            () => TileContainer?.SetActive(false));
-
             CursorManager.Instance.SetCursorDefault();
+            _fade = _canvasGroup?.Fade(0.0f, .5f, false);
         }
+
+        private void OnDestroy()
+            => _fade?.Kill();
     }
 }

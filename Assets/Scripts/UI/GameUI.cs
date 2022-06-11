@@ -8,6 +8,8 @@ namespace Bombsite.UI
         [SerializeField]
         private CanvasGroup _onCountdownFinished;
 
+        private Tween _fade;
+
         private void OnEnable()
         {
             GameController.CountdownFinished += OnCountdownFinished;
@@ -19,14 +21,8 @@ namespace Bombsite.UI
         }
 
         private void OnCountdownFinished() 
-            => Hide(_onCountdownFinished);
+            => _fade = _onCountdownFinished?.Fade(0f, .5f, false);
 
-        public void Hide(CanvasGroup group) 
-        {
-            group.blocksRaycasts = false;
-            group.DOFade(0f, .5f)
-                        .OnComplete(
-                            () => group.gameObject.SetActive(false));
-        }
+        private void OnDestroy() => _fade?.Kill();
     }
 }

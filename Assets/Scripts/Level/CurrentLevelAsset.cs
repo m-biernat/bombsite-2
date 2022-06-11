@@ -12,13 +12,13 @@ namespace Bombsite
 
         public LevelManagerAsset.LevelInfo Info 
         { get; private set; }
-
-        public LevelAsset UpdateInfo() 
+        
+        public LevelAsset Init() 
         {
             var path = SceneManager.GetActiveScene().path;
 
-            Info = _levelManager.Levels[path];
-            
+            Info = _levelManager.GetLevelInfo(path);
+
             return Info.Asset;
         }
     }

@@ -16,6 +16,9 @@ namespace Bombsite
         public int TimeLimit { get; private set; }
 
         [field: SerializeField]
+        public float WaitTime { get; private set; } = 1.0f;
+
+        [field: SerializeField]
         public List<BombContainer> AvailableBombs 
         { get; private set; }
 
