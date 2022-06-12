@@ -17,11 +17,16 @@ namespace Bombsite
 
         private IImpulse _impulse;
 
+        private Rigidbody _rigidbody;
+
         public void Invoke()
             => Invoke("Detonate", Delay);
 
         private void Awake()
-            => _impulse = GetComponent<IImpulse>();
+        {
+            _impulse = GetComponent<IImpulse>();
+            _rigidbody = GetComponent<Rigidbody>();
+        }
 
         private void Detonate()
         {
@@ -51,8 +56,7 @@ namespace Bombsite
             }
 
             _impulse?.Invoke();
-
-            Destroy(gameObject);
+            _rigidbody.isKinematic = true;            
         }
     }
 }

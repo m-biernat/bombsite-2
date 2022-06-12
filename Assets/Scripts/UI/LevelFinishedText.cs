@@ -15,12 +15,6 @@ namespace Bombsite.UI
 
         private Sequence _sequence;
 
-        [SerializeField]
-        private float _moveTo;
-
-        [SerializeField]
-        private float _scaleTo;
-
         public void Show(float delayBefore, float delayAfter, Action onComplete = null)
         {
             _sequence = DOTween.Sequence();

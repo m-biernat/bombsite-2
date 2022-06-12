@@ -117,8 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textTransfrom: {fileID: 553890453874238969}
   _canvasGroup: {fileID: 8069202945328449572}
-  _moveTo: -150
-  _scaleTo: 1
 --- !u!1 &5465988584475957720
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +182,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textTransfrom: {fileID: 7407165557796270094}
   _canvasGroup: {fileID: 2515946920337122700}
-  _moveTo: 150
-  _scaleTo: 1.25
 --- !u!1 &6157328576618097910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1584,7 @@ PrefabInstance:
     - target: {fileID: 2809949631015231305, guid: bdeffc0df42e7cb4c85720b666cd9599,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 2809949631015231305, guid: bdeffc0df42e7cb4c85720b666cd9599,
         type: 3}
@@ -2213,7 +2209,7 @@ PrefabInstance:
     - target: {fileID: 9018998556796842372, guid: 50ac242beb1e04048a4d0f01ff308c5f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 9018998556796842372, guid: 50ac242beb1e04048a4d0f01ff308c5f,
         type: 3}
