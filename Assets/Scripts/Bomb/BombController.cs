@@ -125,13 +125,15 @@ namespace Bombsite
 
         private IEnumerator Detonate() 
         { 
+            yield return new WaitForSecondsRealtime(.5f);
+
+            var delay = new WaitForSecondsRealtime(1.0f);
+
             foreach (var bomb in _bombManager.DetonableBombs)
             {
-                yield return new WaitForSecondsRealtime(.5f);
                 bomb.Trigger();
+                yield return delay;
             }
-
-            yield return new WaitForSecondsRealtime(.5f);
 
             OnAllBombsDetonated();
         }

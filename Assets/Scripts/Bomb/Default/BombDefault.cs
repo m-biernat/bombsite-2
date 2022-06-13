@@ -49,6 +49,7 @@ namespace Bombsite
             if (_triggered)
                 return;
 
+            _triggered = true;
             _detonate?.Invoke();
             _explode?.Invoke();
         }
