@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Passive Bomb
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 0}
-  <Prefab>k__BackingField: {fileID: 6470329297009425823, guid: 8148f881896b9bd4d814b4c85b91227e,
+  <Prefab>k__BackingField: {fileID: 6470329297009425823, guid: 2274c0bf2db7144478579452c7a8752a,
     type: 3}
