@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hideOnExplode: {fileID: 982352375314566563}
   _explosionFx: {fileID: 6222588283169641242}
-  _delayOffset: 0.2
+  _delayOffset: 0.3
   _hideOffset: 0.1
 --- !u!114 &-3972239106273973245
 MonoBehaviour:

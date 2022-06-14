@@ -37,11 +37,8 @@ namespace Bombsite
 
             foreach (var go in objectsInRange)
             {
-                var rb = go?.GetComponent<Rigidbody>();
-
-                if (rb)
-                    rb.AddExplosionForce(_power, origin, _radius, 
-                                         _upForce, ForceMode.Impulse);
+                if (go.CompareTag("Destructible"))
+                    go?.GetComponent<IDestructible>()?.Hit();
 
                 if (go.CompareTag("Bomb"))
                 {
@@ -51,8 +48,11 @@ namespace Bombsite
                         bomb.Trigger();
                 }
 
-                if (go.CompareTag("Destructible"))
-                    go?.GetComponent<IDestructible>()?.Hit();
+                var rb = go?.GetComponent<Rigidbody>();
+
+                if (rb)
+                    rb.AddExplosionForce(_power, origin, _radius, 
+                                         _upForce, ForceMode.Impulse);
             }
 
             _impulse?.Invoke();
