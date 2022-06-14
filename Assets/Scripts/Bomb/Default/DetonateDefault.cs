@@ -47,7 +47,13 @@ namespace Bombsite
                     if (bomb != null && bomb.IsTrigger)
                         bomb.Trigger();
                 }
+            }
 
+            objectsInRange = 
+                Physics.OverlapSphere(origin, _radius, _layerMask);
+
+            foreach (var go in objectsInRange)
+            {
                 var rb = go?.GetComponent<Rigidbody>();
 
                 if (rb)

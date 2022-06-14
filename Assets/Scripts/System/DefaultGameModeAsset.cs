@@ -28,7 +28,7 @@ namespace Bombsite
 
         public override void OnLevelFailed()
         {
-            _gameUI.TextOnLevelFailed.Show(.1f, .1f,
+            _gameUI.TextOnLevelFailed.Show(.25f, .5f,
                 () => _sequence = DOTween.Sequence()
                                 .Insert(0, _gameUI.Controls.FadeOut(_fadeTime))
                                 .Insert(0, _gameUI.ButtonsOnLevelFailed.FadeIn(_fadeTime))

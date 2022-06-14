@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bc87369b2b8c7964bacb0f117dd6fded
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
+      type: 2}
+  - _spawnablePrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

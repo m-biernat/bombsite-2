@@ -487,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5801810202340375004}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Watermelon Slices
   m_TagString: Untagged
   m_Icon: {fileID: 0}

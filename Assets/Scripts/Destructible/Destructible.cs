@@ -12,8 +12,9 @@ namespace Bombsite
         private void OnCollisionEnter(Collision other)
         {
             var go = other.gameObject;
+            
             if (go.CompareTag("Destructible"))
-                go.GetComponent<IDestructible>()?.Hit();
+                Hit();
         }
 
         public void Hit()
@@ -24,7 +25,7 @@ namespace Bombsite
             Destruct();
         }
 
-        private void Destruct()
+        protected virtual void Destruct()
         {
             Destructed = true;
             _destructibleManager.OnDestructed();

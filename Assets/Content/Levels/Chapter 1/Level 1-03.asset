@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenePath: Assets/Scenes/Chapter 1/Level 1-03.unity
   <TimeLimit>k__BackingField: 5
+  <WaitTime>k__BackingField: 0.8
   <AvailableBombs>k__BackingField:
   - <Bomb>k__BackingField: {fileID: 11400000, guid: 7a2643b232e4d3142b1f134dcc5cdb93,
       type: 2}

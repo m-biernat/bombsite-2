@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8268806533690707486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000008146034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8452824026132804040, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080846769037257586, guid: b8981e2ac84397442a55a073c286d3c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Exploding Watermelon
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5958290345498158029, guid: b8981e2ac84397442a55a073c286d3c5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b8981e2ac84397442a55a073c286d3c5, type: 3}
+--- !u!1 &920165601788847468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9080846769037257586, guid: b8981e2ac84397442a55a073c286d3c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8268806533690707486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &436810224810271277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920165601788847468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc87369b2b8c7964bacb0f117dd6fded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destructibleManager: {fileID: 11400000, guid: f8061fb0d672b124697cccc06320480c,
+    type: 2}
+  _spawnablePrefab: {fileID: 6615782421051499366, guid: 0b1673e06a3f1aa4fa5db353da238b5c,
+    type: 3}
