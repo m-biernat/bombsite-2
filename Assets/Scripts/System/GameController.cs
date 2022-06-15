@@ -73,7 +73,7 @@ namespace Bombsite
 
         public IEnumerator Countdown()
         {
-            yield return _extraDelay;
+            //yield return _extraDelay;
 
             var limit = _level.TimeLimit;
 
@@ -81,9 +81,13 @@ namespace Bombsite
             {
                 yield return _timeDelay;
                 _time.Value = limit - i;
+
+                AudioManager.Instance.PlayEffect(AudioType.Tick);
             }
             _countdown = null;
-
+            
+            AudioManager.Instance.PlayEffect(AudioType.End);
+            
             yield return _extraDelay;
             
             OnCountdownFinished();

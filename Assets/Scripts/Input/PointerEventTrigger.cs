@@ -34,6 +34,8 @@ namespace Bombsite
         {
             _isDown = true;
             CursorManager.Instance.SetCursorSelectPressed();
+
+            AudioManager.Instance.PlayEffect(AudioType.Click);
             
             base.OnPointerDown(data);
         } 

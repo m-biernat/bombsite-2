@@ -39,6 +39,9 @@ namespace Bombsite
 
             _tween = _hideOnExplode.DOScale(Vector3.zero, .1f)
                                    .SetDelay(_hideDelay);
+
+            AudioManager.Instance.PlayEffect(AudioType.Explosion,
+                                             transform.position);
         }
 
         private void OnDestroy() => _tween.Kill();

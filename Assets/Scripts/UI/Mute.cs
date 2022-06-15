@@ -11,7 +11,6 @@ namespace Bombsite.UI
         [SerializeField]
         private Sprite _soundOn, _soundOff;
 
-        // This will be changed
         private bool _muted = false;
 
         public void Toggle() 
@@ -19,9 +18,15 @@ namespace Bombsite.UI
             _muted = !_muted;
             
             if (_muted)
+            {
                 _image.sprite = _soundOff;
+                AudioManager.Instance.Mute();
+            }
             else
-                _image.sprite = _soundOn; 
+            {
+                _image.sprite = _soundOn;
+                AudioManager.Instance.Unmute();
+            }
         }
     }
 }
