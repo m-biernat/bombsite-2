@@ -12,7 +12,7 @@ namespace Bombsite
 
         private List<string> _levelPaths;
 
-        private List<LevelInfo> _levelInfos;
+        public List<LevelInfo> LevelInfos {get; private set; }
 
         public readonly struct LevelInfo
         {
@@ -33,7 +33,7 @@ namespace Bombsite
         public void Init()
         {
             _levelPaths = new List<string>();
-            _levelInfos = new List<LevelInfo>();
+            LevelInfos = new List<LevelInfo>();
 
             for (int i = 0; i < LevelGroups.Count; i++)
                 for (int j = 0; j < LevelGroups[i].Levels.Count; j++) 
@@ -41,17 +41,17 @@ namespace Bombsite
                     var level = LevelGroups[i].Levels[j];
                     var levelInfo = new LevelInfo(i, j, level);
                     _levelPaths.Add(level.ScenePath);
-                    _levelInfos.Add(levelInfo);
+                    LevelInfos.Add(levelInfo);
                 }
         }
 
         public LevelInfo GetLevelInfo(string path)
-            => _levelInfos[_levelPaths.IndexOf(path)];
+            => LevelInfos[_levelPaths.IndexOf(path)];
 
         public LevelInfo? GetLevelInfo(int index)
         {
-            if (index >= 0 && index < _levelInfos.Count)
-                return _levelInfos[index];
+            if (index >= 0 && index < LevelInfos.Count)
+                return LevelInfos[index];
             else
                 return null;
         }

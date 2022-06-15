@@ -35,6 +35,11 @@ namespace Bombsite
                 () => SceneManager.LoadScene(0, LoadSceneMode.Single)
             );
 
+        public void LoadEnding()
+            => FadeIn(
+                () => SceneManager.LoadScene(1, LoadSceneMode.Single)
+            );
+
         private void FadeIn(Action onComplete) 
         { 
             _cover.rectTransform.localPosition = new Vector3(0, 300, 0);

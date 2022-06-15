@@ -21,6 +21,8 @@ namespace Bombsite
 
         private float _hideDelay;
 
+        private Tween _tween;
+
         private void Awake()
         {
             var detonate = GetComponent<IDetonate>();
@@ -35,8 +37,10 @@ namespace Bombsite
         {
             _explosionFx.Play();
 
-            _hideOnExplode.DOScale(Vector3.zero, .1f)
-                          .SetDelay(_hideDelay);
+            _tween = _hideOnExplode.DOScale(Vector3.zero, .1f)
+                                   .SetDelay(_hideDelay);
         }
+
+        private void OnDestroy() => _tween.Kill();
     }
 }

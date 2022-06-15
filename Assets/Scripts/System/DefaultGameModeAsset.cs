@@ -51,7 +51,7 @@ namespace Bombsite
             if (index > 0 && nextLevel)
                 SceneLoader.Instance?.LoadLevel(nextLevel);
             else
-                SceneLoader.Instance?.LoadMenu();
+                SceneLoader.Instance?.LoadEnding();
         }
     }
 }

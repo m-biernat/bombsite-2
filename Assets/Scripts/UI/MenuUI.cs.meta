@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7ca2a7f00718cd1449b4989694462cbb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _playButton: {instanceID: 0}
+  - _levelDropdown: {instanceID: 0}
+  - _gameManager: {fileID: 11400000, guid: 6bb472645afb2b34aa9f20ab87f4b916, type: 2}
+  - _levelManager: {fileID: 11400000, guid: 96b543fbd4c01314eaf9c8730cac199a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
