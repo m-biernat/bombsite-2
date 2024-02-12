@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1255b7a3322fc1e43bf9ba985d208c32, type: 3}
-  m_Name: Level 1-04
+  m_Name: Level 1-01
   m_EditorClassIdentifier: 
-  _scenePath: Assets/Scenes/Chapter 1/Level 1-04.unity
-  <TimeLimit>k__BackingField: 4
-  <WaitTime>k__BackingField: 1
+  _scenePath: Assets/_Project/Scenes/Chapter 1/Level 1-01.unity
+  <TimeLimit>k__BackingField: 5
+  <WaitTime>k__BackingField: 0.5
   <AvailableBombs>k__BackingField:
   - <Bomb>k__BackingField: {fileID: 11400000, guid: 7a2643b232e4d3142b1f134dcc5cdb93,
       type: 2}

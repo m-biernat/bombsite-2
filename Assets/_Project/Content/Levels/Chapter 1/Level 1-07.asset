@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1255b7a3322fc1e43bf9ba985d208c32, type: 3}
   m_Name: Level 1-07
   m_EditorClassIdentifier: 
-  _scenePath: Assets/Scenes/Chapter 1/Level 1-07.unity
+  _scenePath: Assets/_Project/Scenes/Chapter 1/Level 1-07.unity
   <TimeLimit>k__BackingField: 6
   <WaitTime>k__BackingField: 0.5
   <AvailableBombs>k__BackingField:
