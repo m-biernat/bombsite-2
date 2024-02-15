@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274382032058555483}
   - component: {fileID: 1472111181100707678}
+  - component: {fileID: 1711155472952575338}
   m_Layer: 0
   m_Name: Initialize
   m_TagString: Untagged
@@ -71,3 +72,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1711155472952575338}
+        m_TargetAssemblyTypeName: Bombsite.MobileSetup, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1711155472952575338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996486183155030821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e61df575551a4f4bb636cc0f35f7fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _halfResEnabled: 1
